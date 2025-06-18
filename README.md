@@ -17,7 +17,25 @@ It’s a real-time chat platform where users can join conversations using the sa
 
 ## 📦 Installation
 
-1. **Clone the repository**
+ **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/chatapp.git
    cd chatapp
+   ```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Backend
+
+```
+cd backend
+npm install
+npm run dev
+```
+
