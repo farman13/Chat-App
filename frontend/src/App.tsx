@@ -22,9 +22,7 @@ const App = () => {
   }, [messages]);
 
   const joinRoom = () => {
-
     socket.current = new WebSocket("https://chat-app-867a.onrender.com");
-
     socket.current.onopen = () => {
       socket.current?.send(JSON.stringify({ type: "join", roomId }));
       setIsJoined(true);
@@ -34,7 +32,6 @@ const App = () => {
       const { sender, msg } = JSON.parse(event.data);
       setMessages((prev) => [...prev, { sender, content: msg }]);
     };
-
   };
 
   const handleDisconnect = () => {
@@ -48,9 +45,7 @@ const App = () => {
 
   const sendMessage = () => {
     if (socket.current) {
-      socket.current.send(
-        JSON.stringify({ type: "chat", msg: newMessage })
-      );
+      socket.current.send(JSON.stringify({ type: "chat", msg: newMessage }));
       setNewMessage("");
     }
   };
@@ -58,25 +53,33 @@ const App = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-stone-200">
       {!isJoined ? (
-        <div className="w-full max-w-md bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-4">Join a Room</h2>
-          <input
-            type="text"
-            placeholder="Enter Room ID"
-            value={roomId}
-            onChange={(e) => setRoomId(e.target.value)}
-            className="w-full p-2 border rounded mb-4"
-          />
-          <button
-            onClick={joinRoom}
-            disabled={!roomId.trim()}
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
-          >
-            Join
-          </button>
+        <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-slate-200 text-white text-center px-4">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to ChatSphere 🗨️</h1>
+            <p className="text-lg md:text-xl mb-8">
+              Create & Join a room and start chatting in real-time using just a Room ID.
+            </p>
+            <div className="w-full max-w-md bg-white p-2 rounded-lg ml-20 shadow">
+              <h2 className="text-xl font-bold mt-2">Join a Room</h2>
+              <input
+                type="text"
+                placeholder="Enter Room ID"
+                value={roomId}
+                onChange={(e) => setRoomId(e.target.value)}
+                className="w-full p-2 border rounded mb-4 text-black"
+              />
+              <button
+                onClick={joinRoom}
+                disabled={!roomId.trim()}
+                className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 disabled:bg-blue-300"
+              >
+                Join
+              </button>
+            </div>
+          </div>
         </div>
       ) : (
-        <div className="w-full max-w-2xl bg-white p-4 rounded-lg shadow">
+        <div className="w-full max-w-2xl bg-white p-4 rounded-lg shadow bg-gradient-to-br from-slate-200 to-blue-400">
           <header className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-bold">Room: {roomId}</h2>
             <button
