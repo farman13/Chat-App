@@ -55,7 +55,7 @@ const App = () => {
       {!isJoined ? (
         <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-slate-200 text-white text-center px-4">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to ChatSphere 🚀</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to ChatSphere 🗨️</h1>
             <p className="text-lg md:text-xl mb-8">
               Create & Join a room and start chatting in real-time using just a Room ID.
             </p>
