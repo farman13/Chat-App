@@ -51,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-stone-200">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-slate-200">
       {!isJoined ? (
         <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-slate-200 text-white text-center px-4">
           <div>
@@ -79,7 +79,7 @@ const App = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full max-w-2xl bg-white p-4 rounded-lg shadow bg-gradient-to-br from-slate-200 to-blue-400">
+        <div className="w-full max-w-2xl bg-white p-4 rounded-lg shadow">
           <header className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-bold">Room: {roomId}</h2>
             <button
