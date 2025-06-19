@@ -23,7 +23,7 @@ const App = () => {
 
   const joinRoom = () => {
 
-    socket.current = new WebSocket("https://chat-app-9u11.onrender.com/");
+    socket.current = new WebSocket("https://chat-app-867a.onrender.com");
 
     socket.current.onopen = () => {
       socket.current?.send(JSON.stringify({ type: "join", roomId }));
